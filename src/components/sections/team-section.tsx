@@ -1,6 +1,7 @@
 
 import { FadeInWhenVisible } from "@/components/motion-components";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Github, Linkedin, Mail, User } from "lucide-react";
 
 export function TeamSection() {
@@ -20,7 +21,17 @@ export function TeamSection() {
           <div className="max-w-md mx-auto">
             <Card className="overflow-hidden bg-gradient-to-b from-background to-muted/30 shadow-md border-primary/10 hover:border-primary/30 transition-all duration-300">
               <div className="relative h-60 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
-                <User className="h-20 w-20 text-white" />
+                {/* Replace User icon with Avatar component */}
+                <Avatar className="h-40 w-40 border-4 border-white">
+                  <AvatarImage 
+                    src="/src/assets/images/team/maaz.jpg" 
+                    alt="Maaz" 
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="text-4xl bg-primary/20">
+                    <User className="h-20 w-20 text-white" />
+                  </AvatarFallback>
+                </Avatar>
               </div>
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold mb-1">Maaz</h3>

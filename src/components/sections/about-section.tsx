@@ -1,6 +1,8 @@
 
 import { FadeInWhenVisible, StaggerChildren, StaggerItem } from "@/components/motion-components";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { User } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -9,8 +11,24 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <FadeInWhenVisible>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">About Me</h2>
-              <div className="h-1 w-20 bg-primary mb-8"></div>
+              <div className="flex items-center mb-8">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2">About Me</h2>
+                  <div className="h-1 w-20 bg-primary mb-4"></div>
+                </div>
+                <div className="ml-auto">
+                  <Avatar className="h-24 w-24 border-2 border-primary">
+                    <AvatarImage 
+                      src="/src/assets/images/team/maaz.jpg" 
+                      alt="Maaz" 
+                      className="object-cover"
+                    />
+                    <AvatarFallback className="text-xl bg-primary/20">
+                      <User className="h-10 w-10" />
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+              </div>
               
               <div className="space-y-6 text-lg">
                 <p>
