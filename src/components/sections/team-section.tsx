@@ -21,7 +21,6 @@ export function TeamSection() {
           <div className="max-w-md mx-auto">
             <Card className="overflow-hidden bg-gradient-to-b from-background to-muted/30 shadow-md border-primary/10 hover:border-primary/30 transition-all duration-300">
               <div className="relative h-60 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
-                {/* Replace User icon with Avatar component */}
                 <Avatar className="h-40 w-40 border-4 border-white">
                   <AvatarImage 
                     src="/src/assets/images/team/maaz.jpg" 
