@@ -19,7 +19,7 @@ export function AboutSection() {
                 <div className="ml-auto">
                   <Avatar className="h-24 w-24 border-2 border-primary">
                     <AvatarImage 
-                      src="/src/assets/images/team/maaz.jpeg" 
+                      src="/src/assets/images/team/maaz.jpg" 
                       alt="Maaz" 
                       className="object-cover"
                     />
