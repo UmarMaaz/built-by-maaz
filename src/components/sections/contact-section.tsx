@@ -98,7 +98,7 @@ export function ContactSection() {
                       className="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
                       aria-label="GitHub"
                     >
-                      <GitHub size={18} />
+                      <Github size={18} />
                     </a>
                   </div>
                 </div>
