@@ -15,12 +15,19 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
     // Simulate loading for a small amount of time for a smoother experience
     const timer = setTimeout(() => {
       setLoading(false);
     }, 800);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      // Reset scroll behavior when component unmounts
+      document.documentElement.style.scrollBehavior = '';
+    };
   }, []);
 
   return (

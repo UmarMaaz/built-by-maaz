@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -170,27 +170,6 @@ export function HeroSection() {
             </Button>
           </motion.div>
         </div>
-
-        {/* Scroll Down Indicator - Adjusted position */}
-        <motion.div 
-          className="absolute left-1/2 -translate-x-1/2 bottom-2 md:bottom-8 flex flex-col items-center cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-        >
-          <a 
-            href="#about"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors flex flex-col items-center"
-          >
-            <span className="mb-2">Scroll Down</span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            >
-              <ArrowDown size={16} />
-            </motion.div>
-          </a>
-        </motion.div>
       </div>
 
       {/* Scroll to Top Button */}
@@ -201,6 +180,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.3 }}
           whileHover={{ y: -3 }}
         >
           <ArrowUp size={20} className="text-white" />
