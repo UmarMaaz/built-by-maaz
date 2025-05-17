@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -8,6 +8,7 @@ export function HeroSection() {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
   const phrases = [
     "Transforming Ideas into AI Solutions",
     "Building Smart Web & Mobile Apps",
@@ -32,6 +33,20 @@ export function HeroSection() {
     }
   }, [currentIndex, currentPhrase]);
 
+  // Add scroll event listener to show/hide scroll to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const eraseText = () => {
     if (displayedText.length === 0) {
       setCurrentPhrase((currentPhrase + 1) % phrases.length);
@@ -45,6 +60,13 @@ export function HeroSection() {
     }, 30);
     
     return () => clearTimeout(timeout);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   // Floating animation for decorative elements
@@ -149,9 +171,9 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Scroll Down Indicator */}
+        {/* Scroll Down Indicator - Adjusted position */}
         <motion.div 
-          className="absolute left-1/2 -translate-x-1/2 bottom-8 flex flex-col items-center cursor-pointer"
+          className="absolute left-1/2 -translate-x-1/2 bottom-2 md:bottom-8 flex flex-col items-center cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -170,6 +192,20 @@ export function HeroSection() {
           </a>
         </motion.div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollToTop && (
+        <motion.button
+          className="fixed bottom-6 right-6 z-50 p-3 bg-primary/90 hover:bg-primary rounded-full shadow-lg"
+          onClick={scrollToTop}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ y: -3 }}
+        >
+          <ArrowUp size={20} className="text-white" />
+        </motion.button>
+      )}
     </section>
   );
 }
