@@ -1,5 +1,4 @@
-
-import { ArrowRight, GitHub, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -30,7 +29,7 @@ export function Footer() {
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="GitHub"
               >
-                <GitHub size={18} />
+                <Github size={18} />
               </a>
               <a 
                 href="mailto:umarmaaz2637@gmail.com"

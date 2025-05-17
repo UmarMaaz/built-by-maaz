@@ -2,7 +2,7 @@
 import { FadeInWhenVisible } from "@/components/motion-components";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { GitHub, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
